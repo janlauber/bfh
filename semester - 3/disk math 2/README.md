@@ -1,1 +1,0 @@
-## Disk. Math 2

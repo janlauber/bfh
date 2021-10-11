@@ -37,7 +37,7 @@ sources:
 ## c)
 
 //TODO
-- Müssen jetzt diese Zwei function sets implementiert werden oder reicht es eine universelle implementation mit random erzeugter Hashfunction zu erzeugen?
+- Müssen jetzt diese Zwei function sets implementiert werden oder reicht es eine universelle Implementation mit random erzeugter Hashfunction zu erzeugen?
 
 ```java
 import java.util.Random;
