@@ -1,31 +1,37 @@
 # Answers to Exercise 10
 
 ## a)
-In der Dokumentation unter https://docs.oracle.com/javase/7/docs/api/ findet man zu java.lang.String folgende Berechung der Methode **hashCode()**:
+In der Dokumentation unter https://docs.oracle.com/javase/7/docs/api/ findet man zu java.lang.String folgende Berechung der Methode **hashCode()**:  
 
-
-`s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]`
-
+`s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]`  
 
 Verwendet werden natürliche Zahlen.
 Glossar:
 - **s[i]** ist der i-te Character des Strings
 - **n** ist die länge des Strings
 - **^** bedeutet das die folgenden Zeichen als Exponent gerechnet werden
-Der Hashwert von einem leeren String ist 0.
+Der Hashwert von einem leeren String ist 0.  
 
+Dieses Polynom kann *effizient* per **Horner Schema** berechnet werden.
 
 sources: 
 - https://docs.oracle.com/javase/7/docs/api/
 - https://www.geeksforgeeks.org/how-string-hashcode-value-is-calculated/
 
-//TODO
-- Was ist mit `"Describe an efficient way to comput this hash value efficiently?"` gemeint?
-
 ## b)
 **Universal Hashing** beschreibt in der Informatik und Mathematik das zufällige Auswählen einer HashFunktion aus einer HashFunktions-Sammlung.\
 Das garantiert eine sehr geringe Wahrscheinlichkeit einer Kollision.\
 Universal Hashing hat viele Anwendungsbereiche in der Informatik, z.B. bei der Implementation von Hash Tables, zufälliger Algorithmen und in der Kryptographie.
+
+### Carter and Wegman
+*Definition:*  
+**a** ∈ {1,2,...,p-1} (Note: a != 0)  
+**b** ∈ {0,1,...,p-1}  
+**p** (Primzahl)  
+**m** (Anzahl hash functions im Funktionsset von der random ausgewählt wird)
+
+*Funktion:*  
+![Carter and Wegman](images/carterwegman.png)
 
 //TODO
 - Was meint man mit `Describe two different function sets`?
@@ -33,6 +39,7 @@ Universal Hashing hat viele Anwendungsbereiche in der Informatik, z.B. bei der I
 sources: 
 - https://en.wikipedia.org/wiki/Universal_hashing
 - https://www.youtube.com/watch?v=3cTTzYc3gnE
+- https://www.cs.umd.edu/class/fall2019/cmsc420-0201/Lects/lect10-hash-basics.pdf
 
 ## c)
 
