@@ -58,6 +58,7 @@ sources:
 Da ich die Implementation von einer universal Hash Methode weitaus am kompliziertesten fande, habe ich dies auf 2 verschiedene Arten realisert.
 
 ### Implementation 1
+**zusätzlich als code File mitgelifert `implementation.java`**  
 Bei der 1. Implementation wird beim Erzeugen eines *UniversalHash* Objektes mit dem Integer *m* die Anzahl an hash Funktionen definiert, welche aus der universellen Hashfamilie erstellt werden (m wird automatisch zu einer Primzahl konventiert).  
 Mit *p* kann man eine Primzahl definieren, welche gleich gross oder grösser als die Anzahl Schlüssel in der HashTable ist.  
 Zu beachten gilt:  
@@ -82,12 +83,13 @@ public class Main {
         int p = 1010111;
 
         UniversalHash universalHash1 = new UniversalHash(testString, m, 1010111);
-        System.out.println(universalHash1.hashCode());
-        System.out.println(universalHash1.hashCode());
+        System.out.println();
+        System.out.println("Universal Hash: " + universalHash1.hashCode());
+        System.out.println("Universal Hash (same as above): " + universalHash1.hashCode());
 
         // You can call defineHashFunction again, if you got an collision in your HashTable
         universalHash1.defineHashFunction();
-        System.out.println(universalHash1.hashCode());
+        System.out.println("New Hash Function selected: " + universalHash1.hashCode());
     }
 }
 
@@ -197,7 +199,7 @@ class UniversalHash {
 ```
 
 ### Implementation 2
-
+**nicht als code File mitgelifert, sondern nur in diesem PDF sichtbar**  
 Die 2. Implementation hat keine Hashfunktionsliste, sondern berechnet beim Erstellen des Objekts einfach 2 zufällige Zahlen für *a* und *b* im vorgegebenen Range der universellen Funktion.  
 Somit werden nur diese zwei Variablen als State der Hashfunktion gespeichert und *m* wird eigentlich ein bisschen unnötig hierbei.
 Wie gesagt, ist diese Implementation nur als *alternative* Implementation gedacht, welche die universelle Hashfunktion mit einer geringerer Laufzeit und Speicherbeanspruchung realisiert.
