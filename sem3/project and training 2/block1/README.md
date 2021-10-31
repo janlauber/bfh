@@ -8,3 +8,6 @@ a) How this method is realized for the objects of type java.lang.String? Describ
 b) What is universal hashing? Describe the main idea of universal hashing. Describe two different function sets realizing universal hashing.  
 c) Implement a hash method for the class java.lang.String based on the universal functions described above.  
 d) Compute the runtime complexity of your method hashCode() and compare it iwth the Java implementation from above.  
+
+## Answers
+Check out my [anwers](ANSWERS.md) for the tasks mentioned above.
