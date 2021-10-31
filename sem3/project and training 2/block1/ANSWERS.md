@@ -1,5 +1,6 @@
 # Answers to Exercise 10
-
+Official GitHub BFH Repository of `Jan Lauber` to this Exercise:  
+https://github.com/janlauber/bfh/tree/main/sem3/project%20and%20training%202/block1  
 ## Task a)
 In der Dokumentation unter https://docs.oracle.com/javase/7/docs/api/ findet man zu java.lang.String folgende Berechung der Methode **hashCode()**:  
 
