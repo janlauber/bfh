@@ -59,7 +59,7 @@ sources:
 Da ich die Implementation von einer universal Hash Methode weitaus am kompliziertesten fande, habe ich dies auf 2 verschiedene Arten realisert.
 
 ### Implementation 1
-**zusätzlich als code File mitgelifert `implementation.java`**  
+**zusätzlich als code File mitgelifert: `implementation1.java`**  
 Bei der 1. Implementation wird beim Erzeugen eines *UniversalHash* Objektes mit dem Integer *m* die Anzahl an hash Funktionen definiert, welche aus der universellen Hashfamilie erstellt werden (m wird automatisch zu einer Primzahl konventiert).  
 Mit *p* kann man eine Primzahl definieren, welche gleich gross oder grösser als die Anzahl Schlüssel in der HashTable ist.  
 Zu beachten gilt:  
