@@ -31,8 +31,8 @@ Universal Hashing hat viele Anwendungsbereiche in der Informatik, z.B. bei der I
 *Glossar:*  
 **a** ∈ {1,2,...,p-1} # zufällig gewählte Zahl, so dass a != 0  
 **b** ∈ {0,1,...,p-1} # zufällig gewählte Zahl  
-**p** # Primzahl, welche im vorab so festgelegt wird, dass sie grösser als die Hashtabelle ist.
-**m** # Anzahl hash functions im Funktionsset von der random ausgewählt wird  
+**p** # Primzahl, welche im vorab so festgelegt wird, dass sie grösser als die Hashtabelle ist.  
+**m** # Anzahl hash functions im Funktionsset von der random ausgewählt wird.  
 
 *Funktion:*  
 ![Carter and Wegman](images/carterwegman.png)
