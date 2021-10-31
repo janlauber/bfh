@@ -1,6 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Main {
+public class implementation2 {
     public static void main(String[] args) {
         String testString = "DiesIstEinTest";
         int m = 555555;

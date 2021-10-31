@@ -68,13 +68,18 @@ Dies ist beim Wert *p* sinnvoll bis *2<sup>27</sup>*, danach überlappt der inte
 Doch das hat zur Folge, dass die gesamte Implementation angepasst werden muss und es zu grösseren Leerwerten kommt.
 
 *Features*  
-Falls dieses UniversalHash Objekt in einer HashTable zum Einsatz kommt, kann mittels *defineHashFunction()* Methode im Falle einer Kollision eine neue Hashfunktion per Random faktor aus der Hashfunktionsliste definiert werden.
+Falls dieses UniversalHash Objekt in einer HashTable zum Einsatz kommt, kann mittels *defineHashFunction()* Methode im Falle einer Kollision eine neue Hashfunktion per Random faktor aus der Hashfunktionsliste definiert werden.  
+
+*Code Execution*  
+```bash
+java implementation1.java
+```
 ```java
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Main {
+public class implementation1 {
     public static void main(String[] args) {
         // String to hash
         String testString = "DiesIstEinTest";
@@ -205,10 +210,15 @@ Die 2. Implementation hat keine Hashfunktionsliste, sondern berechnet beim Erste
 Somit werden nur diese zwei Variablen als State der Hashfunktion gespeichert und *m* wird eigentlich ein bisschen unnötig hierbei.
 Wie gesagt, ist diese Implementation nur als *alternative* Implementation gedacht, welche die universelle Hashfunktion mit einer geringerer Laufzeit und Speicherbeanspruchung realisiert.
 
+*Code Execution*  
+```bash
+java implementation2.java
+```
+
 ```java
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Main {
+public class implementation2 {
     public static void main(String[] args) {
         String testString = "DiesIstEinTest";
         int m = 555555;
