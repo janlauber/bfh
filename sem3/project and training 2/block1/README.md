@@ -10,4 +10,4 @@ c) Implement a hash method for the class java.lang.String based on the universal
 d) Compute the runtime complexity of your method hashCode() and compare it iwth the Java implementation from above.  
 
 ## Answers
-Check out my [anwers](ANSWERS_LAUBJ5.md) for the tasks mentioned above.
+Check out my [anwers](ANSWERS_LAUBJ5.md) and [retry](retry/README.md) for the tasks mentioned above.
