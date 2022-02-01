@@ -1,0 +1,3 @@
+module:actorrace
+ch.bfh.akka.actorrace.backend
+ch.bfh.akka.actorrace.frontend

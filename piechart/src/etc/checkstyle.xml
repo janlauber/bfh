@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+		"-//Checkstyle//DTD Checkstyle Configuration 1.3//EN" "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<!--
+	Checkstyle configuration that checks the Java coding conventions from:
+	- the Java Language Specification at https://docs.oracle.com/javase/specs/jls/se11/html/index.html
+	- the Sun Code Conventions at https://www.oracle.com/java/technologies/javase/codeconventions-contents.html
+	- the Javadoc guidelines at https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html
+	- the JDK API documentation https://docs.oracle.com/en/java/javase/11/
+	- some best practices
+-->
+
+<module name="Checker">
+
+	<property name="severity" value="warning"/>
+	<property name="fileExtensions" value="java"/>
+
+	<!-- Suppress audit events for annotations -->
+	<!-- See https://checkstyle.sourceforge.io/config_filters.html#SuppressWarningsFilter -->
+	<module name="SuppressWithPlainTextCommentFilter">
+		<property name="offCommentFormat" value="CHECKSTYLE:OFF ([\w\|]+)"/>
+		<property name="onCommentFormat" value="CHECKSTYLE:ON ([\w\|]+)"/>
+		<property name="checkFormat" value="$1"/>
+	</module>
+
+	<!-- Checks for Headers-->
+	<!-- See https://checkstyle.org/config_header.html -->
+	<!--
+	<module name="RegexpHeader">
+		<property name="header" value="^/.*"/>
+	</module>
+	-->
+
+	<!-- Checks whether files end with a new line -->
+	<!-- See https://checkstyle.org/config_misc.html#NewlineAtEndOfFile -->
+	<module name="NewlineAtEndOfFile"/>
+
+	<!-- Checks for size violations -->
+	<!-- See https://checkstyle.org/config_sizes.html -->
+	<module name="FileLength"/>
+	<module name="LineLength">
+		<property name="max" value="120"/>
+		<property name="tabWidth" value="4"/>
+	</module>
+
+	<!-- Miscellaneous other checks -->
+	<!-- https://checkstyle.sourceforge.io/config_regexp.html -->
+	<module name="RegexpSingleline">
+		<property name="format" value="^\t*    "/>
+		<property name="message" value="Indent must use tab characters."/>
+	</module>
+	<module name="RegexpSingleline">
+		<property name="format" value="\s+$"/>
+		<property name="message" value="Line has trailing spaces."/>
+	</module>
+
+	<module name="TreeWalker">
+
+		<property name="tabWidth" value="4"/>
+
+		<!-- Checks for naming conventions -->
+		<!-- See https://checkstyle.org/config_naming.html -->
+		<module name="ConstantName"/>
+		<module name="LocalFinalVariableName"/>
+		<module name="LocalVariableName"/>
+		<module name="MemberName"/>
+		<module name="MethodName"/>
+		<module name="PackageName"/>
+		<module name="ParameterName"/>
+		<module name="StaticVariableName"/>
+		<module name="TypeName"/>
+
+		<!-- Checks for imports -->
+		<!-- See https://checkstyle.org/config_imports.html -->
+		<module name="AvoidStarImport"/>
+		<module name="IllegalImport"/>
+		<module name="RedundantImport"/>
+		<module name="UnusedImports">
+			<property name="processJavadoc" value="false"/>
+		</module>
+
+		<!-- Checks for size violations -->
+		<!-- See https://checkstyle.org/config_sizes.html -->
+		<module name="MethodLength"/>
+		<module name="ParameterNumber"/>
+
+		<!-- Checks for whitespace -->
+		<!-- See https://checkstyle.org/config_whitespace.html -->
+		<module name="EmptyForIteratorPad"/>
+		<module name="GenericWhitespace"/>
+		<module name="MethodParamPad"/>
+		<module name="NoWhitespaceAfter">
+			<property name="tokens" value="AT,INC,DEC,UNARY_MINUS,UNARY_PLUS,BNOT,LNOT,DOT,ARRAY_DECLARATOR,INDEX_OP"/>
+		</module>
+		<module name="NoWhitespaceBefore"/>
+		<module name="OperatorWrap"/>
+		<module name="ParenPad"/>
+		<module name="TypecastParenPad"/>
+		<module name="WhitespaceAfter"/>
+		<module name="WhitespaceAround"/>
+
+		<!-- Checks for midifiers -->
+		<!-- See https://checkstyle.org/config_modifier.html -->
+		<module name="ModifierOrder"/>
+		<module name="RedundantModifier"/>
+
+		<!-- Checks for blocks -->
+		<!-- See https://checkstyle.org/config_blocks.html -->
+		<module name="AvoidNestedBlocks"/>
+		<module name="EmptyBlock"/>
+		<module name="LeftCurly"/>
+		<module name="NeedBraces">
+			<property name="allowSingleLineStatement" value="true"/>
+		</module>
+		<module name="RightCurly"/>
+
+		<!-- Checks for common coding problems -->
+		<!-- See https://checkstyle.org/config_coding.html -->
+		<module name="EmptyStatement"/>
+		<module name="EqualsHashCode"/>
+		<module name="HiddenField">
+			<property name="ignoreConstructorParameter" value="true"/>
+			<property name="ignoreSetter" value="true"/>
+		</module>
+		<module name="IllegalInstantiation"/>
+		<module name="InnerAssignment"/>
+		<module name="MagicNumber">
+			<property name="ignoreFieldDeclaration" value="true"/>
+			<property name="ignoreHashCodeMethod" value="true"/>
+		</module>
+		<module name="MissingSwitchDefault"/>
+		<module name="MultipleVariableDeclarations"/>
+		<module name="SimplifyBooleanExpression"/>
+		<module name="SimplifyBooleanReturn"/>
+
+		<!-- Miscellaneous checks -->
+		<!-- See https://checkstyle.org/config_misc.html -->
+		<module name="ArrayTypeStyle"/>
+		<module name="Indentation">
+			<property name="basicOffset" value="4"/>
+			<property name="caseIndent" value="0"/>
+			<property name="throwsIndent" value="4"/>
+			<property name="arrayInitIndent" value="8"/>
+			<property name="lineWrappingIndentation" value="4"/>
+		</module>
+		<module name="UpperEll"/>
+
+	</module>
+
+</module>

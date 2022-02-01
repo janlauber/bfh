@@ -1,0 +1,53 @@
+.pane {
+    -fx-background-color: #334455;
+}
+.error {
+	-fx-font-size: 24px;
+    -fx-padding: 10 10 10 10;
+    -fx-font-weight: 700;
+    -fx-text-fill: red;
+}
+.color0,.color1,.color2,.color3,.color4,.color5,.color6,.color7,.color8,.color9 {
+    -fx-stroke-type: inside;
+    -fx-stroke-width: 2;
+}
+.color0 {
+    -fx-fill: #cfa73c;
+    -fx-stroke: #997a28;
+}
+.color1 {
+    -fx-fill: #49a36d;
+    -fx-stroke: #398758;
+}
+.color2 {
+    -fx-fill: #496fa3;
+    -fx-stroke: #284975;
+}
+.color3 {
+    -fx-fill: #ab635e;
+    -fx-stroke: #853d38;
+}
+.color4 {
+    -fx-fill: #99982e;
+    -fx-stroke: #757428;
+}
+.color5 {
+    -fx-fill: #2e8e99;
+    -fx-stroke: #226f78;
+}
+.color6 {
+    -fx-fill: #9e3657;
+    -fx-stroke: #6b1b34;
+}
+.color7 {
+    -fx-fill: #bd8d1c;
+    -fx-stroke: #856723;
+}
+.color8 {
+    -fx-fill: #9752a1;
+    -fx-stroke: #703778;
+}
+.color9 {
+    -fx-fill: #7ca145;
+    -fx-stroke: #597530;
+}

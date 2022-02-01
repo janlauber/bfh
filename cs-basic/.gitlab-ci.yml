@@ -1,0 +1,93 @@
+image: registry.gitlab.ti.bfh.ch/bp-env/bti3001_csb-dockerrunner:latest
+
+variables:
+  CI_TEST_DIR: ".tests"
+  CI_TEST_REPOSITORY: $GRADING_GIT
+  CI_TEST_SERVER: "gitlab.ti.bfh.ch"
+
+# build stage
+
+.setup_build:
+  stage: build
+  tags:
+    - fbi
+  only:
+    - master
+
+1-hello-build:
+  extends: .setup_build
+  script:
+    - cd 1-hello && make clean && make
+  artifacts:
+    paths:
+      - 1-hello/hello
+
+2-base64-build:
+  extends: .setup_build
+  script:
+    - cd 2-base64 && make clean && make
+  artifacts:
+    paths:
+      - 2-base64/base64encoder
+
+3-ls-build:
+  extends: .setup_build
+  script:
+    - cd 3-ls && make clean && make
+  artifacts:
+    paths:
+      - 3-ls/ls
+
+4-sort-build:
+  extends: .setup_build
+  script:
+    - cd 4-sort && make clean && make
+  artifacts:
+    paths:
+      - 4-sort/sort
+
+5-shell-build:
+  extends: .setup_build
+  script:
+    - cd 5-shell && make clean && make
+  artifacts:
+    paths:
+      - 5-shell/shell
+
+# test stage
+
+.setup_grading:
+  stage: test
+  tags:
+    - fbi
+  only:
+    - master
+  before_script:
+    - git clone https://$GRADING_DTU:$GRADING_DTP@$CI_TEST_SERVER/$CI_TEST_REPOSITORY $CI_TEST_DIR
+    - cd $CI_TEST_DIR
+    - git rev-parse HEAD
+
+1-hello-test:
+  extends: .setup_grading
+  script:
+    - ./1-hello.py
+
+2-base64-test:
+  extends: .setup_grading
+  script:
+    - ./2-base64.py
+
+3-ls-test:
+  extends: .setup_grading
+  script:
+    - ./3-ls.py
+
+4-sort-test:
+  extends: .setup_grading
+  script:
+    - ./4-sort.py
+
+5-shell-test:
+  extends: .setup_grading
+  script:
+    - ./5-shell.py

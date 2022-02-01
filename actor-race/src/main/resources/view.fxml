@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.Group?>
+
+<VBox styleClass="root" alignment="center" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:id="root">
+    <children>
+        <Group fx:id="group">
+        </Group>
+    </children>
+</VBox>

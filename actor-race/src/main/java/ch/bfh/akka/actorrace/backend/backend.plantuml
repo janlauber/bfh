@@ -1,0 +1,186 @@
+@startuml
+
+title __BACKEND's Class Diagram__\n
+
+    namespace ch.bfh.akka.actorrace.backend {
+      abstract class ch.bfh.akka.actorrace.backend.Attore {
+          + Attore()
+          + createReceive()
+          {abstract} # movement()
+          {abstract} # onStart()
+      }
+    }
+  
+  
+
+    namespace ch.bfh.akka.actorrace.backend {
+      interface ch.bfh.akka.actorrace.backend.Attore.Message {
+      }
+    }
+  
+  
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.Attore.Start {
+          ~ rootRef : ActorRef<Message>
+          ~ x : int
+          ~ y : int
+          + Start()
+      }
+    }
+  
+  
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.AttoreRand {
+          {static} - THREAD_SLEEP : int
+          - currentX : int
+          - currentY : int
+          - rootRef : ActorRef<Message>
+          + AttoreRand()
+          {static} + create()
+          + movement()
+          + onStart()
+      }
+    }
+  
+  
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.AttoreSchneggo {
+          {static} - THREAD_SLEEP : int
+          - currentX : int
+          - currentY : int
+          - rootRef : ActorRef<Message>
+          + AttoreSchneggo()
+          {static} + create()
+          + movement()
+          + onStart()
+      }
+    }
+  
+  
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.GrossoCervello {
+          {static} - MILISECONDS_TO_SECONDS : int
+          - attoreRand : ActorRef<Message>
+          - attoreSchneggo : ActorRef<Message>
+          - grossoCervello : ActorRef<Message>
+          {static} - lab : LabirintoEstremo
+          - randX : int
+          - randY : int
+          - schneggoX : int
+          - schneggoY : int
+          + GrossoCervello()
+          {static} + create()
+          + createReceive()
+          - getRandomStartPosition()
+          - onFoundGoal()
+          - onStartAttores()
+          - onStop()
+          - onUpdatePosition()
+      }
+    }
+  
+  
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.GrossoCervello.FoundGoal {
+          ~ ref : ActorRef<Message>
+          ~ startTime : long
+          ~ x : int
+          ~ y : int
+          + FoundGoal()
+      }
+    }
+  
+  
+
+
+    namespace ch.bfh.akka.actorrace.backend {
+      interface ch.bfh.akka.actorrace.backend.GrossoCervello.Message {
+      }
+    }
+  
+  
+
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.GrossoCervello.StartAttores {
+          + StartAttores()
+      }
+    }
+  
+  
+
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.GrossoCervello.Stop {
+      }
+    }
+  
+  
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.GrossoCervello.UpdatePosition {
+          ~ ref : ActorRef<Message>
+          ~ x : int
+          ~ y : int
+          + UpdatePosition()
+      }
+    }
+  
+  
+
+    namespace ch.bfh.akka.actorrace.backend {
+      class ch.bfh.akka.actorrace.backend.LabirintoEstremo {
+          {static} - GOAL : int
+          - labirinto : Integer[][]
+          - x : int
+          - y : int
+          + LabirintoEstremo()
+          + getLabirinto()
+          + getX()
+          + getY()
+          + isGoal()
+          + isPath()
+          + isWall()
+          + setGoal()
+          + setPath()
+          + setWall()
+      }
+    }
+ 
+  
+
+  ch.bfh.akka.actorrace.backend.Attore -up-|> akka.actor.typed.javadsl.AbstractBehavior
+  ch.bfh.akka.actorrace.backend.Attore +-down- ch.bfh.akka.actorrace.backend.Attore.Message
+  ch.bfh.akka.actorrace.backend.Attore +-down- ch.bfh.akka.actorrace.backend.Attore.Start
+  ch.bfh.akka.actorrace.backend.Attore.Start .up.|> ch.bfh.akka.actorrace.backend.Attore.Message
+  ch.bfh.akka.actorrace.backend.Attore.Start o-- ch.bfh.akka.actorrace.backend.LabirintoEstremo : lab
+  ch.bfh.akka.actorrace.backend.AttoreRand -up-|> ch.bfh.akka.actorrace.backend.Attore
+  ch.bfh.akka.actorrace.backend.AttoreRand o-- ch.bfh.akka.actorrace.backend.LabirintoEstremo : lab
+  ch.bfh.akka.actorrace.backend.AttoreSchneggo -up-|> ch.bfh.akka.actorrace.backend.Attore
+  ch.bfh.akka.actorrace.backend.AttoreSchneggo o-- ch.bfh.akka.actorrace.backend.LabirintoEstremo : lab
+  ch.bfh.akka.actorrace.backend.AttoreSchneggo o-- ch.bfh.akka.actorrace.backend.LabirintoEstremo : localLabirinto
+  ch.bfh.akka.actorrace.backend.GrossoCervello -up-|> akka.actor.typed.javadsl.AbstractBehavior
+  ch.bfh.akka.actorrace.backend.GrossoCervello +-down- ch.bfh.akka.actorrace.backend.GrossoCervello.FoundGoal
+  ch.bfh.akka.actorrace.backend.GrossoCervello +-down- ch.bfh.akka.actorrace.backend.GrossoCervello.Message
+  ch.bfh.akka.actorrace.backend.GrossoCervello +-down- ch.bfh.akka.actorrace.backend.GrossoCervello.StartAttores
+  ch.bfh.akka.actorrace.backend.GrossoCervello +-down- ch.bfh.akka.actorrace.backend.GrossoCervello.Stop
+  ch.bfh.akka.actorrace.backend.GrossoCervello +-down- ch.bfh.akka.actorrace.backend.GrossoCervello.UpdatePosition
+  ch.bfh.akka.actorrace.backend.GrossoCervello.FoundGoal .up.|> ch.bfh.akka.actorrace.backend.GrossoCervello.Message
+  ch.bfh.akka.actorrace.backend.GrossoCervello.StartAttores .up.|> ch.bfh.akka.actorrace.backend.GrossoCervello.Message
+  ch.bfh.akka.actorrace.backend.GrossoCervello.Stop .up.|> ch.bfh.akka.actorrace.backend.GrossoCervello.Message
+  ch.bfh.akka.actorrace.backend.GrossoCervello.UpdatePosition .up.|> ch.bfh.akka.actorrace.backend.GrossoCervello.Message
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

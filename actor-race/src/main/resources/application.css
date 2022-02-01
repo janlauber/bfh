@@ -1,0 +1,29 @@
+.root {
+    -fx-alignment: center;
+    -fx-hgap: 10.0px;
+    -fx-vgap: 10.0px;
+    -fx-background-color: white;
+    -fx-padding: 20.0px;
+}
+.button {
+    -fx-font-size: 14.0px;
+    -fx-font-weight: bold;
+    -fx-margin: 20.0px;
+}
+.label {
+    -fx-font-size: 14.0px;
+    -fx-padding: 5.0px;
+    -fx-min-width:110.0px;
+}
+.title {
+    -fx-font-size: 30.0px;
+    -fx-font-weight: bold;
+    -fx-pref-width:400.0px;
+    -fx-alignment:center;
+    -fx-padding: 10.0px;
+}
+.center {
+    -fx-padding: 10.0px;
+    -fx-spacing:20.0px;
+    -fx-alignment:center;
+}

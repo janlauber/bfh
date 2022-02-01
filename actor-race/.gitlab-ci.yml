@@ -1,0 +1,63 @@
+variables:
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+
+.verify: &verify
+  tags:
+    - ti
+  image: maven:3.8.3-openjdk-17
+  stage: test
+  script:
+    - 'mvn $MAVEN_CLI_OPTS verify'
+  artifacts:
+    paths:
+      - .m2/repository
+stages:
+  - test
+  - build
+  - release
+
+verify:openjdk17:
+  <<: *verify
+
+create_badge_svg:
+  stage: build
+  image: python:3.6.6
+  tags:
+    - ti
+  script:
+    - echo "Python other dependencies installation"
+  after_script:
+    - pip install anybadge
+    - commits=$(git rev-list --all --count)
+    - anybadge -l commits -v $commits -f commits.svg -c green
+    - anybadge -l awesomeness -v "110%" -f awesomeness.svg -c "#97CA00"
+    - anybadge -l licence -v "Apache License 2.0" -f licence.svg -c "#97CA00"
+    - anybadge -l pipeline -v passing -f pipeline.svg passing=green failing=red
+  artifacts:
+    paths:
+      - commits.svg
+      - awesomeness.svg
+      - pipeline.svg
+      - licence.svg
+    when: always
+    expire_in: 4 weeks
+
+docker:release:
+  image: docker:19.03.12
+  stage: release
+  tags:
+    - ti
+  services:
+    - docker:19.03.12-dind
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  script:
+    - echo "Docker image build"
+    - echo "Building image $IMAGE_TAG"
+    - echo $CI_REGISTRY
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - main

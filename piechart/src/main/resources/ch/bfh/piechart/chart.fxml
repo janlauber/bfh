@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Label?>
+
+<StackPane 
+		minHeight="300.0" minWidth="300.0" 
+		prefHeight="600.0" prefWidth="600.0" 
+      	xmlns="http://javafx.com/javafx" 
+      	xmlns:fx="http://javafx.com/fxml/1"
+      	fx:controller="ch.bfh.piechart.ui.ChartController">
+    <stylesheets>
+        <URL value="@chart.css" />
+    </stylesheets>
+    
+	<Pane fx:id="pane" styleClass="pane" rotate="180.0" minHeight="300.0" minWidth="300.0" prefHeight="600.0" prefWidth="600.0">
+	    <rotationAxis>
+	        <Point3D x="1.0" />
+	    </rotationAxis>
+	</Pane>
+    
+    <Label fx:id="errorMsg" styleClass="error"/>
+    
+</StackPane>
