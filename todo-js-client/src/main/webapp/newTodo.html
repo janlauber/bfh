@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Todo App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/styles.css">
+	<script type="module" src="js/newTodo.js"></script>
+	<script src="lib/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<nav>
+		<a href="registration.html">Registration</a> |
+		<a href="todoList.html">Todo List</a> |
+		<a href="#" class="disabled">New Todo</a>
+	</nav>
+	<header></header>
+	<main>
+		<h1>New Todo</h1>
+			<label>Username*</label>
+			<input id="username" required>
+			<label>Password*</label>
+			<input id="password" type="password" required>
+			<label>Title*</label>
+			<input id="title" required>
+			<label>Category</label>
+			<input id="category">
+			<label>Due Date</label>
+			<input id="dueDate" type="date">
+			<button id="addTodo" class="primary">Add Todo</button>
+	</main>
+	<footer></footer>
+</body>
+</html>
