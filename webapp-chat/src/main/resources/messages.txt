@@ -1,0 +1,6 @@
+Java:Does anybody know what annotations are?
+Java:Annotations are metadata that can be added to Java source code.
+Java:Can you give an example?
+Java:The annotation @Override is used to inform the compiler that a method overrides an inherited method from a base class or implements a method of an interface.
+Simpsons:Who are the Simpsons?
+Simpsons:The Simpsons is an animated television series about the fictional Simpson family. It is a satirical portrayal of American life and culture.
