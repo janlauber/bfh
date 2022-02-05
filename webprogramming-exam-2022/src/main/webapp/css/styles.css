@@ -1,0 +1,57 @@
+body {
+	background-color: white;
+	color: black;
+	font: 14px sans-serif;
+	margin: auto;
+	max-width: 400px;
+	padding: 10px;
+}
+
+a {
+	color: royalblue;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 2.5em;
+	font-weight: normal;
+	margin: 10px 0 25px 0;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 10px 0 25px 0;
+}
+
+tr {
+	border-bottom: 1px solid black;
+	cursor: pointer;
+}
+
+th, td {
+	padding: 5px 25px 5px 0;
+	text-align: left;
+	vertical-align: top;
+}
+
+button {
+	background-color: royalblue;
+	border: none;
+	color: white;
+	cursor: pointer;
+	font: inherit;
+	margin: 5px 0;
+	padding: 7px;
+}
+
+footer {
+	margin: 25px 0;
+}
+
+.info {
+	color: black;
+}
+
+.error {
+	color: red;
+}
